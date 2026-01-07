@@ -1,6 +1,13 @@
+import { BrowserRouter } from "react-router";
+import Header from "./features/Header";
+import Main from "./features/Main";
+
 function App() {
     return (
-        <>Kokechii</>
+        <BrowserRouter>
+            <Header />
+            <Main />
+        </BrowserRouter>
     );
 }
 
