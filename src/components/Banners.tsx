@@ -3,12 +3,14 @@ import { COLOR_ORDER } from "../utils/Colors";
 
 function Banners() {
     const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
-    const rems = 16;
+    const units = 24;
+    const width = units / 4;
+    const height = units / 6;
 
     const [count, setCount] = useState(calculateCount());
 
     function calculateCount(): number {
-        return Math.ceil(4 * window.innerWidth / (rem * rems));
+        return Math.ceil(4 * window.innerWidth / (rem * units));
     }
 
     const handleWindowResize = useCallback(() => {
@@ -31,13 +33,13 @@ function Banners() {
                         key={index}
                         style={{
                             backgroundColor: COLOR_ORDER[index % COLOR_ORDER.length],
-                            minWidth: `${rem * rems / 4}px`,
-                            maxWidth: `${rem * rems / 4}px`,
-                            minHeight: `${rem * rems / 4}px`,
-                            maxHeight: `${rem * rems / 4}px`,
-                            borderBottom: "50%"
+                            minWidth: `${width}rem`,
+                            maxWidth: `${width}rem`,
+                            minHeight: `${height}rem`,
+                            maxHeight: `${height}rem`,
+                            borderRadius: `0 0 ${width / 2}rem ${width / 2}rem`,
+                            display: "block"
                         }}
-                        className="rounded-b-[50%] block"
                     />
                 ))
             }
