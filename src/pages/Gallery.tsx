@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 function Gallery() {
     const [tab, setTab] = useState("originals");
+    const [iconUrls, setIconUrls] = useState<string[]>([]);
     const [imageUrls, setImageUrls] = useState<string[]>([]);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -9,10 +10,11 @@ function Gallery() {
         async function getImages() {
             setIsLoading(true);
 
-            const res = await fetch(`${import.meta.env.VITE_IMAGE_URL}/gallery/${tab}/`);
+            const res = await fetch(`${import.meta.env.VITE_IMAGE_URL}/icon/gallery/${tab}/`);
             const imageListings: ImageListing[] = await res.json();
 
-            setImageUrls(imageListings.map(listing => `${import.meta.env.VITE_IMAGE_URL}/gallery/${tab}/${listing.name}`));
+            setIconUrls(imageListings.map(listing => `${import.meta.env.VITE_IMAGE_URL}/icon/gallery/${tab}/${listing.name}`));
+            setImageUrls(imageListings.map(listing => `${import.meta.env.VITE_IMAGE_URL}/full/gallery/${tab}/${listing.name}`));
             setIsLoading(false);
         }
         getImages();
@@ -44,7 +46,7 @@ function Gallery() {
                                     imageUrls.map((url, index) =>
                                         <a href={url} className="w-full h-full flex items-center">
                                             <img
-                                                src={url}
+                                                src={iconUrls[index]}
                                                 alt="Gallery image"
                                                 key={index}
                                                 className="w-full hover:scale-105 transition-transform mx-auto rounded-md"
