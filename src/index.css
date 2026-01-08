@@ -4,14 +4,21 @@
     --color-*: initial;
     --color-red: #FF6C50;
     --color-light-red: #E8B5B2;
+    --color-dark-red: #D5573E;
     --color-orange: #FFA050;
+    --color-light-orange: #FFC55A;
+    --color-dark-orange: #E58535;
     --color-yellow: #FFC55A;
     --color-green: #A6C05E;
+    --color-light-green: #D0D289;
     --color-lime: #D5D92E;
     --color-cyan: #8CB4AB;
     --color-blue: #73B0B8;
     --color-light-blue: #A5C7CC;
+    --color-dark-blue: #649BA3;
     --color-fuchsia: #E8B5B2;
+    --color-light-fuchsia: #E1C4C2;
+    --color-dark-fuchsia: #D0A897;
 
     --color-bg: #CCE0E3;
     --color-white: #F4F4F4;

@@ -1,8 +1,11 @@
+import { useState } from "react";
 import LogoMascot from "../assets/images/logo-mascot.png";
 import AppliedText from "../assets/svg/Applied.tsx";
 import AttendedText from "../assets/svg/Attended.tsx";
 
 function Home() {
+    const [tab, setTab] = useState("events");
+
     return (
         <>
             <article className="flex bg-white rounded-4xl ml-16 mr-64 my-8 p-8 pt-0 pb-16 w-fit">
@@ -25,8 +28,19 @@ function Home() {
             </article>
 
             <article className="mx-16 p-4">
-                <span className="rounded-t-4xl text-white bg-blue text-6xl p-4 pb-0">Events</span>
-                <div className="w-full h-fit bg-light-blue border-4 border-blue">
+                <span>
+                    <ul className="flex gap-2 text-4xl font-bold text-white">
+                        <li>
+                            <button
+                                onClick={() => setTab("events")}
+                                className={`transition-colors rounded-t-4xl p-4 cursor-pointer ${tab === "events" ? "bg-blue" : "bg-dark-blue"}`}
+                            >
+                                Events
+                            </button>
+                        </li>
+                    </ul>
+                </span>
+                <div className="w-full h-fit bg-light-blue border-4 border-blue rounded-4xl rounded-tl-none">
                     <section className="flex text-blue">
                         <div className="relative flex">
                             <span className="absolute -translate-x-3 translate-y-3 rotate-3">
@@ -60,7 +74,7 @@ function Home() {
                             <div className="w-0 border-12 border-gray h-128 absolute rounded-full left-1/2 -translate-x-1/2"></div>
                             <div className="border-6 border-text bg-text-light text-5xl font-extrabold rounded-4xl p-4 pl-0">
                                 <div className="border-6 border-gray bg-white rounded-4xl p-4 w-lg h-128">
-                                    <h1 className="text-green">Applied</h1>
+                                    <h1 className="text-green">Attended</h1>
                                     <ul className="text-lime list-disc p-4 mx-6">
                                         <li>xyz</li>
                                         <li>xyz</li>
