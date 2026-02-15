@@ -28,6 +28,9 @@
     --color-text: #172850;
 
     --animate-logo: animate-logo 1s ease-in-out;
+    --animate-cart: animate-train-cart 1s ease-in-out;
+
+    --breakpoint-3xl: 144rem;
 
     @keyframes animate-logo {
 
@@ -38,6 +41,18 @@
 
         50% {
             rotate: 10deg;
+        }
+    }
+
+    @keyframes animate-train-cart {
+
+        25%,
+        75% {
+            rotate: -5deg;
+        }
+
+        50% {
+            rotate: 5deg;
         }
     }
 }

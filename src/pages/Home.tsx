@@ -1,15 +1,23 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import LogoMascot from "../assets/images/logo-mascot.png";
 import AppliedText from "../assets/svg/Applied.tsx";
 import AttendedText from "../assets/svg/Attended.tsx";
+import TrainFrontImage from "../assets/images/train-front.png";
+import TrainCartAbout from "../assets/images/train-cart-about.png";
+import TrainCartBrand from "../assets/images/train-cart-brand.png";
+import TrainCartDisplay from "../assets/images/train-cart-display.png";
+import TrainCartGallery from "../assets/images/train-cart-gallery.png";
+import TrainCartMerch from "../assets/images/train-cart-merch.png";
+import TrainWheels from "../assets/images/train-wheels.png";
+import { NavLink } from "react-router";
 
 function Home() {
     const [tab, setTab] = useState("events");
 
     return (
         <>
-            <article className="flex bg-white rounded-4xl ml-16 mr-64 my-8 p-8 pt-0 pb-16 w-fit">
-                <section className="flex-3">
+            <article className="flex justify-center mx-24 my-8">
+                <section className="h-fit bg-white ml-16 p-8 pr-32 pb-16 rounded-4xl">
                     <h1 className="text-[80px] text-green font-bold">All Aboard!</h1>
                     <p className="text-4xl">
                         Welcome! I’m Kodi, a Rhode Island–based artist creating
@@ -18,16 +26,53 @@ function Home() {
                         and custom handmade felt plush keychains.
                     </p>
                 </section>
-                <section className="flex-2 relative">
+                <section className="w-fit -ml-32">
                     <img
                         src={LogoMascot}
                         alt="Logo and mascot"
-                        className="absolute max-w-lg -translate-y-8"
+                        className="max-w-lg -translate-y-8"
                     />
                 </section>
             </article>
 
-            <article className="mx-16 p-4">
+            <article className="mx-24">
+                <div className="w-full">
+                    <section className="relative flex items-end 3xl:-mt-128 2xl:-mt-64 -mt-40">
+                        <span className="absolute w-full mx-12 -px-16 rounded-full 3xl:bottom-24 2xl:bottom-16 bottom-12 3xl:h-6 h-4 bg-text -z-20"></span>
+                        <span className="flex items-end w-full gap-x-4">
+                            <img src={TrainFrontImage} alt="Train front" className="w-full flex-4 -z-10" />
+                            {
+                                [
+                                    { image: TrainCartGallery, link: "/gallery" },
+                                    { image: TrainCartMerch, link: "/merch" },
+                                    { image: TrainCartDisplay, link: "/display" },
+                                    { image: TrainCartBrand, link: "/brand" },
+                                    { image: TrainCartAbout, link: "/about" },
+                                ].map((cart, index) =>
+                                    <>
+                                        <NavLink key={index} to={cart.link} className="flex-3 flex flex-col items-center" end>
+                                            <img
+                                                src={cart.image}
+                                                alt="Train cart"
+                                                className="w-full z-10 hover:animate-cart transition-transform"
+                                            />
+                                            <img
+                                                key={index + 5}
+                                                src={TrainWheels}
+                                                alt="Train wheels"
+                                                className="-mt-1 w-full -z-10"
+                                            />
+                                        </NavLink>
+
+                                    </>
+                                )
+                            }
+                        </span>
+                    </section>
+                </div>
+            </article>
+
+            <article className="mx-24 p-4">
                 <span>
                     <ul className="flex gap-2 text-4xl font-bold text-white">
                         <li>
