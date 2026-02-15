@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import LogoMascot from "../assets/images/logo-mascot.png";
 import AppliedText from "../assets/svg/Applied.tsx";
 import AttendedText from "../assets/svg/Attended.tsx";
