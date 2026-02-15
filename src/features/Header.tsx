@@ -10,6 +10,8 @@ function Header() {
     const RIPPLE_DELTA = 200;
 
     function rippleName() {
+        if (rippleIndex !== null) return;
+
         setRippleIndex(0);
         for (let i = 1; i < RIPPLE_MAX_INDEX; i++) {
             setTimeout(() => setRippleIndex(i), i * RIPPLE_DELTA);
