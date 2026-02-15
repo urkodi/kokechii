@@ -1,11 +1,11 @@
 $envPath = "./.env"
 
-if (-not (Test-Path $envFile -PathType Leaf)) {
-    Write-Error "Error: file not found at $envFile"
+if (-not (Test-Path $envPath -PathType Leaf)) {
+    Write-Error "Error: file not found at $envPath"
     exit 1
 }
 
-Get-Content ./.env | ForEach-Object {
+Get-Content $envPath | ForEach-Object {
     $line = $_.Trim()
 
     if ([string]::IsNullOrEmpty($line) -or $line.StartsWith('#')) { return }
