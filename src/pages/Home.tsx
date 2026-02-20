@@ -2,13 +2,13 @@ import { useState } from "react";
 import LogoMascot from "../assets/images/logo-mascot.png";
 import AppliedText from "../assets/svg/Applied.tsx";
 import AttendedText from "../assets/svg/Attended.tsx";
-import TrainFrontImage from "../assets/images/train-front.png";
-import TrainCartAbout from "../assets/images/train-cart-about.png";
-import TrainCartBrand from "../assets/images/train-cart-brand.png";
-import TrainCartDisplay from "../assets/images/train-cart-display.png";
-import TrainCartGallery from "../assets/images/train-cart-gallery.png";
-import TrainCartMerch from "../assets/images/train-cart-merch.png";
-import TrainWheels from "../assets/images/train-wheels.png";
+import TrainFrontImage from "../assets/svg/TrainFront.tsx";
+import TrainCartAbout from "../assets/svg/TrainAbout.tsx";
+import TrainCartBrand from "../assets/svg/TrainBrand.tsx";
+import TrainCartDisplay from "../assets/svg/TrainDisplay.tsx";
+import TrainCartGallery from "../assets/svg/TrainGallery.tsx";
+import TrainCartMerch from "../assets/svg/TrainMerch.tsx";
+import TrainWheels from "../assets/svg/TrainWheels.tsx";
 import { NavLink } from "react-router";
 
 function Home() {
@@ -16,31 +16,33 @@ function Home() {
 
     return (
         <>
-            <article className="flex justify-center mx-24 my-8">
-                <section className="h-fit bg-white ml-16 p-8 pr-32 pb-16 rounded-4xl">
-                    <h1 className="text-[80px] text-green font-bold">All Aboard!</h1>
-                    <p className="text-4xl">
+            <article className="flex h-fit items-center justify-between 3xl:mx-64 mx-48 my-24 bg-white rounded-4xl p-16 pb-24">
+                <section className="flex-3">
+                    <h1 className="py-12 3xl:text-8xl text-7xl text-green font-bold">All Aboard!</h1>
+                    <p className="3xl:text-5xl text-4xl">
                         Welcome! I’m Kodi, a Rhode Island–based artist creating
                         anime-inspired character art and mascot designs for small
                         merch. My work is designed for stickers, charms, prints,
                         and custom handmade felt plush keychains.
                     </p>
                 </section>
-                <section className="w-fit -ml-32">
+                <section className="relative flex-1 w-fit">
                     <img
                         src={LogoMascot}
                         alt="Logo and mascot"
-                        className="max-w-lg -translate-y-8"
+                        className="absolute -mr-64 max-w-2xl -translate-y-1/2"
                     />
                 </section>
             </article>
 
-            <article className="mx-24">
+            <article className="3xl:ml-40 3xl:mr-48 ml-32 mr-40">
                 <div className="w-full">
-                    <section className="relative flex items-end 3xl:-mt-128 2xl:-mt-64 -mt-40">
-                        <span className="absolute w-full mx-12 -px-16 rounded-full 3xl:bottom-24 2xl:bottom-16 bottom-12 3xl:h-6 h-4 bg-text -z-20"></span>
+                    <section className="relative flex items-end 3xl:-mt-96 -mt-64">
+                        <span className="absolute w-5/6 -right-8 -px-16 rounded-full 3xl:bottom-24 2xl:bottom-16 bottom-12 3xl:h-6 h-4 bg-text -z-20"></span>
                         <span className="flex items-end w-full gap-x-4">
-                            <img src={TrainFrontImage} alt="Train front" className="w-full flex-4 -z-10" />
+                            <div className="flex-25 -z-10">
+                                <TrainFrontImage width="100%" height="100%" />
+                            </div>
                             {
                                 [
                                     { image: TrainCartGallery, link: "/gallery" },
@@ -50,19 +52,14 @@ function Home() {
                                     { image: TrainCartAbout, link: "/about" },
                                 ].map((cart, index) =>
                                     <>
-                                        <NavLink key={index} to={cart.link} className="flex-3 flex flex-col items-center" end>
-                                            <img
-                                                src={cart.image}
-                                                alt="Train cart"
-                                                className="w-full z-10 hover:animate-cart transition-transform"
-                                            />
-                                            <img
-                                                key={index + 5}
-                                                src={TrainWheels}
-                                                alt="Train wheels"
-                                                className="-mt-1 w-full -z-10"
-                                            />
-                                        </NavLink>
+                                        <NavLink key={index} to={cart.link} className="flex-17 flex flex-col items-center" end>
+                                            <div className="w-full z-10 hover:animate-cart transition-transform">
+                                                <cart.image width="100%" height="100%" />
+                                            </div>
+                                            <div className="-mt-1 w-full -z-10">
+                                                <TrainWheels width="100%" height="100%" />
+                                            </div>
+                                        </NavLink >
 
                                     </>
                                 )
@@ -70,7 +67,7 @@ function Home() {
                         </span>
                     </section>
                 </div>
-            </article>
+            </article >
 
             <article className="mx-24 p-4">
                 <span>

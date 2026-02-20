@@ -30,7 +30,7 @@
     --animate-logo: animate-logo 1s ease-in-out;
     --animate-cart: animate-train-cart 1s ease-in-out;
 
-    --breakpoint-3xl: 144rem;
+    --breakpoint-3xl: 128rem;
 
     @keyframes animate-logo {
 
@@ -53,6 +53,24 @@
 
         50% {
             rotate: 5deg;
+        }
+    }
+}
+
+@layer base {
+    html {
+        font-size: 12px;
+    }
+
+    @media (min-width: 768px) {
+        html {
+            font-size: 14px;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        html {
+            font-size: 16px;
         }
     }
 }

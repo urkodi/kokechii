@@ -8,7 +8,7 @@ import Brand from "../pages/Brand";
 
 function Main() {
     return (
-        <main className="p-4">
+        <main className="mx-6">
             <Routes>
                 <Route index element={<Home />} />
                 <Route path="gallery" element={<Gallery />} />
